@@ -54,12 +54,12 @@ function App() {
 
 
     return (
-        <div className="h-screen w-screen flex-col flex justify-center items-center px-5">
+        <div className="h-screen w-screen max-w-screen overflow-x-hidden flex-col flex justify-center items-center px-5 py-10">
             <ConnectButton />
 
             <div className="mb:w-1/3 m-auto flex-col flex justify-center items-center">
 
-                <h1 className="text-black font-bold text-2xl mb-7">Buy Me A Coffee</h1>
+                <h1 className="text-black font-extrabold text-2xl mb-7">Buy Me A Coffee</h1>
 
                 <div className="w-full flex flex-col items-center justify-center">
                     <div className="mb-3 w-full">
@@ -121,19 +121,31 @@ function App() {
                 {isLoading && <div>Check Wallet</div>}
                 {isSuccess && <div>Transaction: {JSON.stringify(data)}</div>}
             </div>
-            <div>
+
+            <h3 className="mt-10 text-black font-medium text-2xl mb-4">Previous tips</h3>
+
+            <div className="max-h-[250px] overflow-y-auto scrollbar-hide">
 
                 {TipsRead.isFetching
                     ? "Loading..."
                     : TipsRead.data.map((tip) => {
                         return (
-                            <div className="mb-5">
-                                <p><span className="font-bold">Address:</span> {tip[0]}</p>
-                                <p><span className="font-bold">Name:</span> {tip[2]}</p>
-                                <p><span className="font-bold">Message:</span> {tip[3]}</p>
-                                <p><span className="font-bold">Tip:</span> {ethers.utils.formatEther(tip[4])} MATIC</p>
-                                <p><span className="font-bold">At:</span> {new Date(tip[1].toNumber() * 1000).toLocaleString()}</p>
-                            </div>
+                            <>
+                                <div className="mb-5">
+                                    <p><span className="font-bold">Address:</span> {tip[0]}</p>
+                                    <p><span className="font-bold">Name:</span> {tip[2]}</p>
+                                    <p><span className="font-bold">Message:</span> {tip[3]}</p>
+                                    <p><span className="font-bold">Tip:</span> {ethers.utils.formatEther(tip[4])} MATIC</p>
+                                    <p><span className="font-bold">At:</span> {new Date(tip[1].toNumber() * 1000).toLocaleString()}</p>
+                                </div>
+                                <div className="mb-5">
+                                    <p><span className="font-bold">Address:</span> {tip[0]}</p>
+                                    <p><span className="font-bold">Name:</span> {tip[2]}</p>
+                                    <p><span className="font-bold">Message:</span> {tip[3]}</p>
+                                    <p><span className="font-bold">Tip:</span> {ethers.utils.formatEther(tip[4])} MATIC</p>
+                                    <p><span className="font-bold">At:</span> {new Date(tip[1].toNumber() * 1000).toLocaleString()}</p>
+                                </div>
+                            </>
                         )
                     })
                 }
