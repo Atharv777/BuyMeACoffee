@@ -130,22 +130,13 @@ function App() {
                     ? "Loading..."
                     : TipsRead.data.map((tip) => {
                         return (
-                            <>
-                                <div className="mb-5">
-                                    <p><span className="font-bold">Address:</span> {tip[0]}</p>
-                                    <p><span className="font-bold">Name:</span> {tip[2]}</p>
-                                    <p><span className="font-bold">Message:</span> {tip[3]}</p>
-                                    <p><span className="font-bold">Tip:</span> {ethers.utils.formatEther(tip[4])} MATIC</p>
-                                    <p><span className="font-bold">At:</span> {new Date(tip[1].toNumber() * 1000).toLocaleString()}</p>
-                                </div>
-                                <div className="mb-5">
-                                    <p><span className="font-bold">Address:</span> {tip[0]}</p>
-                                    <p><span className="font-bold">Name:</span> {tip[2]}</p>
-                                    <p><span className="font-bold">Message:</span> {tip[3]}</p>
-                                    <p><span className="font-bold">Tip:</span> {ethers.utils.formatEther(tip[4])} MATIC</p>
-                                    <p><span className="font-bold">At:</span> {new Date(tip[1].toNumber() * 1000).toLocaleString()}</p>
-                                </div>
-                            </>
+                            <div className="mb-5">
+                                <p><span className="font-bold">Address:</span> {tip[0]}</p>
+                                <p><span className="font-bold">Name:</span> {tip[2]}</p>
+                                <p><span className="font-bold">Message:</span> {tip[3]}</p>
+                                <p><span className="font-bold">Tip:</span> {ethers.utils.formatEther(tip[4])} MATIC</p>
+                                <p><span className="font-bold">At:</span> {new Date(tip[1].toNumber() * 1000).toLocaleString()}</p>
+                            </div>
                         )
                     })
                 }
